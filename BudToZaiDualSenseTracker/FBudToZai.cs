@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
+using System.Windows.Shell;
 
 
 namespace BudToZaiDualSenseTracker
@@ -48,6 +49,8 @@ namespace BudToZaiDualSenseTracker
 
             // Register hotkey (Control + Alt + B)
             RegisterHotKey(this.Handle, HOTKEY_ID, MOD_CONTROL | MOD_ALT, VK_B);
+
+            InitializeJumpList();
         }
 
         private async void InitWebView()
@@ -93,8 +96,6 @@ namespace BudToZaiDualSenseTracker
             base.OnFormClosing(e);
             Properties.Settings.Default.FormLocation = this.Location;
             Properties.Settings.Default.Save();
-
-            // Unregister hotkey
             UnregisterHotKey(this.Handle, HOTKEY_ID);
         }
 
@@ -103,7 +104,6 @@ namespace BudToZaiDualSenseTracker
             const int WM_HOTKEY = 0x0312;
             if (m.Msg == WM_HOTKEY && m.WParam.ToInt32() == HOTKEY_ID)
             {
-                // Toggle visibility
                 this.ToggleVisibility();
             }
             base.WndProc(ref m);
@@ -119,7 +119,7 @@ namespace BudToZaiDualSenseTracker
             else
             {
                 this.Show();
-                this.CItemMenu1.Checked = false ;
+                this.CItemMenu1.Checked = false;
             }
         }
 
@@ -133,6 +133,33 @@ namespace BudToZaiDualSenseTracker
             {
                 this.Close();
             }
+        }
+
+        private void InitializeJumpList()
+        {
+            JumpList jumpList = new JumpList();
+
+            JumpTask showHideTask = new JumpTask
+            {
+                Title = "Show/Hide",
+                Arguments = "/toggle",
+                Description = "Show or hide the application",
+                IconResourcePath = Application.ExecutablePath,
+                ApplicationPath = Application.ExecutablePath
+            };
+
+            JumpTask exitTask = new JumpTask
+            {
+                Title = "Exit",
+                Arguments = "/exit",
+                Description = "Exit the application",
+                IconResourcePath = Application.ExecutablePath,
+                ApplicationPath = Application.ExecutablePath
+            };
+
+            //jumpList.JumpItems.Add(showHideTask);
+            //jumpList.JumpItems.Add(exitTask);
+            //jumpList.Apply();
         }
     }
 }
