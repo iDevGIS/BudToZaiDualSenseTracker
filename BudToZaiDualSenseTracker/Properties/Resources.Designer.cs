@@ -61,33 +61,69 @@ namespace BudToZaiDualSenseTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_menu_exit_24 {
+            get {
+                object obj = ResourceManager.GetObject("icon-menu-exit-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_menu_exit_48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-menu-exit-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_menu_visibility_24 {
+            get {
+                object obj = ResourceManager.GetObject("icon-menu-visibility-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_menu_visibility_48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-menu-visibility-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
         ///
         ///&lt;head&gt;
-        ///  &lt;meta charset=&quot;UTF-8&quot; /&gt;
-        ///  &lt;title&gt;BudToZai-PS5&lt;/title&gt;
-        ///  &lt;style&gt;
-        ///    html,
-        ///    body {
-        ///      margin: 0;
-        ///      padding: 0;
-        ///      height: 100%;
-        ///      width: 100%;
-        ///      background: #11111100;
-        ///      font-family: sans-serif;
-        ///      box-sizing: border-box;
-        ///    }
+        ///    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+        ///    &lt;title&gt;BudToZai-PS5&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        html,
+        ///        body {
+        ///            margin: 0;
+        ///            padding: 0;
+        ///            height: 100%;
+        ///            width: 100%;
+        ///            /*background: #11111100;*/
+        ///            background: #32CD3200;
+        ///            box-sizing: border-box;
+        ///        }
         ///
-        ///    #wrapper {
-        ///      display: flex;
-        ///      align-items: center;
-        ///      justify-content: center;
-        ///      padding: 30px;
-        ///      height: 100vh;
-        ///      width: 100vw;
-        ///      box-sizing: border-box;
-        /// [rest of string was truncated]&quot;;.
+        ///        #wrapper {
+        ///            display: flex;
+        ///            align-items: center;
+        ///            justify-content: center;
+        ///             [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string index {
             get {
