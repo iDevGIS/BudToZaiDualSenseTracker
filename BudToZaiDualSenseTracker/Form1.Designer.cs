@@ -2,7 +2,7 @@
 
 namespace BudToZaiDualSenseTracker
 {
-    partial class Form1
+    partial class FBudToZai
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace BudToZaiDualSenseTracker
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FBudToZai));
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +53,7 @@ namespace BudToZaiDualSenseTracker
             this.webView21.TabIndex = 1;
             this.webView21.ZoomFactor = 1D;
             // 
-            // Form1
+            // FBudToZai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -65,7 +65,7 @@ namespace BudToZaiDualSenseTracker
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "Form1";
+            this.Name = "FBudToZai";
             this.Opacity = 0.85D;
             this.Text = "BudToZai";
             this.TopMost = true;

@@ -7,13 +7,25 @@ using Microsoft.Web.WebView2.Core;
 
 namespace BudToZaiDualSenseTracker
 {
-    public partial class Form1 : Form
+    public partial class FBudToZai : Form
     {
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
 
-        public Form1()
+        // Constants for hotkey
+        private const int HOTKEY_ID = 1;
+        private const int MOD_CONTROL = 0x0002;
+        private const int MOD_ALT = 0x0001;
+        private const int VK_B = 0x42;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
+        public FBudToZai()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -33,6 +45,9 @@ namespace BudToZaiDualSenseTracker
             clickZone.ForeColor = Color.Black;
             clickZone.Cursor = Cursors.Hand;
             this.Controls.Add(clickZone);
+
+            // Register hotkey (Control + Alt + B)
+            RegisterHotKey(this.Handle, HOTKEY_ID, MOD_CONTROL | MOD_ALT, VK_B);
         }
 
         private async void InitWebView()
@@ -78,6 +93,29 @@ namespace BudToZaiDualSenseTracker
             base.OnFormClosing(e);
             Properties.Settings.Default.FormLocation = this.Location;
             Properties.Settings.Default.Save();
+
+            // Unregister hotkey
+            UnregisterHotKey(this.Handle, HOTKEY_ID);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_HOTKEY = 0x0312;
+            if (m.Msg == WM_HOTKEY && m.WParam.ToInt32() == HOTKEY_ID)
+            {
+                // Toggle visibility
+                if (this.Visible)
+                {
+                    this.Hide();
+                    this.ShowInTaskbar = true;
+                }
+                else
+                {
+                    this.Show();
+                    this.ShowInTaskbar = true;
+                }
+            }
+            base.WndProc(ref m);
         }
     }
 }
